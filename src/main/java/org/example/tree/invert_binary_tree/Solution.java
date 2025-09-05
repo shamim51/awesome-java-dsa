@@ -7,17 +7,31 @@ import java.util.List;
 
 public class Solution {
     public static void main(String[] args) {
-        TreeNode tree = TreeFactory.createTree(List.of(1,2,3,4,5,6,7,8,9,10));
-        TreeFactory.inorderDfs(tree);
+        TreeNode tree = TreeFactory.createTree(List.of(6, 5, 8, 7, 9, 3, 4));
+
+        System.out.println("PRINTING TREE IN PREORDER, BEFORE INVERTED ORDER");
+        TreeFactory.preorderDfs(tree);
 
         Solution solution = new Solution();
-        solution.swapChildNodes(tree);
+        solution.invertTree(tree);
 
-        TreeFactory.inorderDfs(tree);
+        System.out.println("PRINTING TREE FOR PREORDER, AFTER INVERTED ORDER");
+        TreeFactory.preorderDfs(tree);
+
     }
-    private void swapChildNodes(TreeNode root) {
+    private void invertTree(TreeNode root) {
         if (root == null) return;
 
-        
+        invertChild(root);
+
+        invertTree(root.getLeft());
+        invertTree(root.getRight());
+
+    }
+
+    private static void invertChild(TreeNode root) {
+        TreeNode tempLeft = root.getLeft();
+        root.setLeft(root.getRight());
+        root.setRight(tempLeft);
     }
 }
