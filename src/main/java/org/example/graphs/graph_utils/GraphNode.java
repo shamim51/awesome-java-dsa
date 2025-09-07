@@ -11,4 +11,12 @@ public class GraphNode {
         this.value = value;
         this.neighbors = new ArrayList<>();
     }
+    public void addNeighbor(GraphNode node) {
+        neighbors.add(node);
+    }
+
+    @Override
+    public String toString() {
+        return "Node(" + value + ")";
+    }
 }
