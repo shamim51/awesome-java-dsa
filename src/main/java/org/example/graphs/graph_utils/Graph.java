@@ -9,26 +9,22 @@ public class Graph {
         this.nodes = new HashMap<>();
     }
 
-    // Add a node
     public GraphNode addNode(int value) {
         nodes.putIfAbsent(value, new GraphNode(value));
         return nodes.get(value);
     }
 
-    // Add an edge (directed)
     public void addEdge(int from, int to) {
         GraphNode fromNode = addNode(from);
         GraphNode toNode = addNode(to);
         fromNode.addNeighbor(toNode);
     }
 
-    // Add an edge (undirected)
     public void addUndirectedEdge(int a, int b) {
         addEdge(a, b);
         addEdge(b, a);
     }
 
-    // Print graph
     public void printGraph() {
         for (GraphNode node : nodes.values()) {
             System.out.print(node + " -> ");
