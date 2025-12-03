@@ -1,17 +1,38 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        while (t-- > 0) {
+            int h = sc.nextInt();
+            int d = sc.nextInt();
+
+            int move = 0;
+            int rest = 0;
+            int cSteps = 0;
+
+            for (int i = 0; i < d;) {
+                cSteps +=1;
+                if(h - cSteps > 0){
+                    move++;
+                    h = h - cSteps;
+
+                    i++;
+                }
+                else {
+                    rest++;
+                    h++;
+                    cSteps = 0;
+                }
+            }
+            System.out.println(move+rest);
+
+
         }
     }
 }

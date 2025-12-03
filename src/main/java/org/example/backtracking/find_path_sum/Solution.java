@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Solution {
     public static void main(String[] args) {
-        TreeNode root = TreeFactory.createTreeFromLevelOrder(List.of(1, 2, 3, 4, 5, 6, 7));
+        TreeNode root = TreeFactory.createTreeFromLevelOrder(List.of(1, 2, 4, 4, 5, 6, 7));
         //TreeFactory.preorderDfs(root);
         Solution solution = new Solution();
         System.out.println(solution.pathSum(root, 7));
