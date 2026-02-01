@@ -10,8 +10,8 @@ public class Solution {
     public static void main(String[] args) {
         TreeNode root = TreeFactory.createTreeFromLevelOrder(List.of(1, 2, 4, 4, 5, 6, 7));
         //TreeFactory.preorderDfs(root);
-        Solution solution = new Solution();
-        System.out.println(solution.pathSum(root, 7));
+//        Solution solution = new Solution();
+        System.out.println(new Solution().pathSum(root, 7));
 
     }
 
